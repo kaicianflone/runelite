@@ -24,14 +24,12 @@
  */
 package net.runelite.client.ui.overlay.tooltip;
 
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import net.runelite.api.Client;
+import net.runelite.client.plugins.mousehighlight.MouseHighlightConfig;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
@@ -45,12 +43,14 @@ public class TooltipOverlay extends Overlay
 	private static final int PADDING = 2;
 	private final TooltipManager tooltipManager;
 	private final Client client;
+	private final MouseHighlightConfig config;
 
 	@Inject
-	private TooltipOverlay(Client client, TooltipManager tooltipManager)
+	private TooltipOverlay(Client client, TooltipManager tooltipManager, MouseHighlightConfig config)
 	{
 		this.client = client;
 		this.tooltipManager = tooltipManager;
+		this.config = config;
 		setPosition(OverlayPosition.TOOLTIP);
 		setPriority(OverlayPriority.HIGHEST);
 		setLayer(OverlayLayer.ALWAYS_ON_TOP);
@@ -97,6 +97,10 @@ public class TooltipOverlay extends Overlay
 			final TooltipComponent tooltipComponent = new TooltipComponent();
 			tooltipComponent.setModIcons(client.getModIcons());
 			tooltipComponent.setText(tooltip.getText());
+
+			if (config.uiTooltipBackground()) {
+				tooltipComponent.setBackgroundColor((new Color(70, 61, 50, 255)));
+			}
 
 			if (newBounds.contains(mousePosition))
 			{

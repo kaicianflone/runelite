@@ -25,9 +25,12 @@
 package net.runelite.client.plugins.mousehighlight;
 
 import com.google.common.base.Strings;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import javax.inject.Inject;
+
 import net.runelite.api.Client;
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
@@ -38,7 +41,6 @@ import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.tooltip.Tooltip;
 import net.runelite.client.ui.overlay.tooltip.TooltipManager;
-import net.runelite.client.ui.overlay.components.TooltipComponent;
 
 class MouseHighlightOverlay extends Overlay
 {
@@ -58,7 +60,8 @@ class MouseHighlightOverlay extends Overlay
 	@Override
 	public Dimension render(Graphics2D graphics)
 	{
-		if (client.isMenuOpen())
+
+        if (client.isMenuOpen())
 		{
 			return null;
 		}
@@ -107,7 +110,8 @@ class MouseHighlightOverlay extends Overlay
 		final int childId = WidgetInfo.TO_CHILD(widgetId);
 		final Widget widget = client.getWidget(groupId, childId);
 
-		if (!config.uiTooltip() && widget != null)
+
+        if (!config.uiTooltip() && widget != null)
 		{
 			return null;
 		}
