@@ -43,7 +43,17 @@ public interface MouseHighlightConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 1,
+			position = 1,
+			keyName = "uiTooltipBackground",
+			name = "Interface Tooltip Solid Background",
+			description = "Enables solid background for interface tooltips."
+	)
+	default boolean uiTooltipBackground() {
+		return false;
+	}
+
+	@ConfigItem(
+			position = 2,
 		keyName = "chatboxTooltip",
 		name = "Chatbox Tooltips",
 		description = "Whether or not tooltips are shown over the chatbox"

@@ -38,6 +38,7 @@ import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.tooltip.Tooltip;
 import net.runelite.client.ui.overlay.tooltip.TooltipManager;
+import net.runelite.client.ui.overlay.components.TooltipComponent;
 
 class MouseHighlightOverlay extends Overlay
 {
