@@ -26,7 +26,6 @@ package net.runelite.client.plugins.mousehighlight;
 
 import com.google.common.base.Strings;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import javax.inject.Inject;
@@ -55,6 +54,7 @@ class MouseHighlightOverlay extends Overlay
 		this.client = client;
 		this.tooltipManager = tooltipManager;
 		this.config = config;
+
 	}
 
 	@Override

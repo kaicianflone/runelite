@@ -28,6 +28,7 @@ import java.awt.*;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
 import net.runelite.api.Client;
 import net.runelite.client.plugins.mousehighlight.MouseHighlightConfig;
 import net.runelite.client.ui.overlay.Overlay;
@@ -95,12 +96,13 @@ public class TooltipOverlay extends Overlay
 		for (Tooltip tooltip : tooltips)
 		{
 			final TooltipComponent tooltipComponent = new TooltipComponent();
-			tooltipComponent.setModIcons(client.getModIcons());
-			tooltipComponent.setText(tooltip.getText());
 
 			if (config.uiTooltipBackground()) {
-				tooltipComponent.setBackgroundColor((new Color(70, 61, 50, 255)));
+				tooltipComponent.setBackgroundColor(new Color(70, 61, 50, 156));
 			}
+
+			tooltipComponent.setModIcons(client.getModIcons());
+			tooltipComponent.setText(tooltip.getText());
 
 			if (newBounds.contains(mousePosition))
 			{

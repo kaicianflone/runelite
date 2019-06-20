@@ -31,6 +31,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.regex.Pattern;
+
 import lombok.Setter;
 import net.runelite.api.IndexedSprite;
 import net.runelite.client.ui.overlay.RenderableEntity;
@@ -43,9 +44,9 @@ public class TooltipComponent implements RenderableEntity
 	private static final int MOD_ICON_WIDTH = 13; // they are generally 13px wide
 
 	private String text;
-	public Color backgroundColor = ComponentConstants.STANDARD_BACKGROUND_COLOR;
 	private Point position = new Point();
 	private IndexedSprite[] modIcons;
+	private Color backgroundColor = ComponentConstants.STANDARD_BACKGROUND_COLOR;
 
 	@Override
 	public Dimension render(Graphics2D graphics)
@@ -79,6 +80,7 @@ public class TooltipComponent implements RenderableEntity
 		final Rectangle tooltipBackground = new Rectangle(x, y,
 			tooltipWidth + OFFSET * 2, tooltipHeight + OFFSET * 2);
 		final BackgroundComponent backgroundComponent = new BackgroundComponent();
+
 		backgroundComponent.setBackgroundColor(backgroundColor);
 		backgroundComponent.setRectangle(tooltipBackground);
 		backgroundComponent.render(graphics);
@@ -217,4 +219,5 @@ public class TooltipComponent implements RenderableEntity
 			}
 		}
 	}
+
 }

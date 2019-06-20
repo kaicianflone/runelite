@@ -45,7 +45,7 @@ public class MouseHighlightPlugin extends Plugin
 	private MouseHighlightOverlay overlay;
 
 	@Provides
-	MouseHighlightConfig provideConfig(ConfigManager configManager)
+	MouseHighlightConfig getConfig(ConfigManager configManager)
 	{
 		return configManager.getConfig(MouseHighlightConfig.class);
 	}
